@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def announcments(request):
+    return render(request, 'announcments_main_page.html')
