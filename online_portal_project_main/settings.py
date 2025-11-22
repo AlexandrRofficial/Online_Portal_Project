@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "main_page_app",
     'materials',
     'announcments',
+    'e_diary',
 ]
 
 MIDDLEWARE = [
