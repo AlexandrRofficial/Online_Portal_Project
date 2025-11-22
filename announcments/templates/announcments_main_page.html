@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcmnets</title>
+    <title>Announcments</title>
 </head>
 <body>
-    
+    <header class="header">
+    <div class="header-center">
+        <h1>Welcome to the Announcments Page</h1>
+    </div>
+    </header>
+
+    <h1 style="text-align:center;">Announcments:</h1>
+
+    <div class="cards">
+    {% for announcement in announcments %}
+        <div class="card">
+            <h2>{{ announcement.title }}</h2>
+            <p>{{ announcement.text|truncatewords:20 }}</p>
+
+            {% if announcement.important %}
+                <p>Important</p>
+            {% else %}
+                <p>Not important</p>
+            {% endif %}
+
+            <small>Created: {{ announcement.created_at }}</small>
+        </div>
+    {% empty %}
+        <p style="text-align:center;">No available announcements</p>
+    {% endfor %}
+</div>
+
+    <footer class="footer">
+        <p>© 2025. All rights reserved.</p>
+    </footer>
 </body>
 </html>
