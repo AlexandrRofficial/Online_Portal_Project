@@ -7,9 +7,17 @@
     body {
         margin: 0;
         padding: 0;
-        background: #C1C8E4; /* Чистий фон без градієнта */
+        background: #C1C8E4;
         font-family: Arial, sans-serif;
         color: white;
+    }
+
+    /* Контейнер для кнопок */
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
     }
 
     .btn {
@@ -19,10 +27,10 @@
         padding: 10px 18px;
         text-decoration: none;
         border-radius: 8px;
-        margin: 20px;
         font-weight: bold;
         transition: 0.3s;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        margin-left: 10px;
     }
 
     .btn:hover {
@@ -32,7 +40,7 @@
 
     table {
         width: 90%;
-        margin: 0 auto;
+        margin: 20px auto;
         border-collapse: collapse;
         background: rgba(255,255,255,0.15);
         backdrop-filter: blur(10px);
@@ -65,14 +73,20 @@
     .empty {
         text-align: center;
         padding: 20px;
-        color: #fff;
     }
 </style>
 
 </head>
 <body>
 
-<a class="btn">+ Додати учня</a>
+<div class="top-bar">
+    <a class="btn">+ Додати учня</a>
+
+    <div>
+        <a class="btn">Редагувати учня</a>
+        <a class="btn">Додати логіки</a>
+    </div>
+</div>
 
 <table>
     <thead>
@@ -89,7 +103,7 @@
         </tr>
         {% empty %}
         <tr>
-            <td colspan="3" class="empty">Немає учнів</td>
+            <td colspan="2" class="empty">Немає учнів</td>
         </tr>
         {% endfor %}
     </tbody>
