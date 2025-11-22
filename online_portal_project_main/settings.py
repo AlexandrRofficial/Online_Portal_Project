@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'materials',
     'announcments',
     'e_diary',
+    'profile',
+
 ]
 
 MIDDLEWARE = [
