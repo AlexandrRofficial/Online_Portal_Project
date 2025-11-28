@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Додати бали</title>
+</head>
+<body>
+
+<h2>Додати логіки учню</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Учень:</label><br>
+    <select name="student">
+        {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Скільки балів додати:</label><br>
+    <input type="number" name="points" min="1" required>
+    <br><br>
+
+    <button type="submit">Додати</button>
+</form>
+
+</body>
+</html>
