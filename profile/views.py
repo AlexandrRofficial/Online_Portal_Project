@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from .models import profile
 
-def account(request):
-    return render(request, "profile.html")
+
+def profill(request):
+    profil = profile.objects.all()
+   
+    return render(request, 'profile.html', context={'profil': profil})
 # Create your views here.
 
 

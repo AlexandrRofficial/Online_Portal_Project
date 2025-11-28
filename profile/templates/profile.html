@@ -6,8 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+<ul>
+    {% for profile in profil %}
+    <h2>hello {{ profile.Name }} </h2>
+    <p>{{ profile.Name }}</p>
+    <p>{{ profile.Description }}</p>
+    {% endfor %}
+</ul>
 
-    <h2>helloworld("print")</h2>
     
 </body>
-</html>
+</html> 
