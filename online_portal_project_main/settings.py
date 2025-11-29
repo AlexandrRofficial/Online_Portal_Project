@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'announcments',
     'e_diary',
     'profile',
+    'accounts',
 
 ]
 

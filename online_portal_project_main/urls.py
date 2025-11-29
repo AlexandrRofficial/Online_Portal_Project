@@ -26,6 +26,7 @@ urlpatterns = [
     path('announcments/', include('announcments.urls')),
     path('e_diary/',include('e_diary.urls')),
     path('profile/',include('profile.urls')),
+    path('accounts/',include('accounts.urls')),
     
     
 ]
