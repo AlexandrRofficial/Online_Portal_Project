@@ -3,7 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Додати бали</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #C1C8E4;
+        font-family: Arial, sans-serif;
+        color: white;
+    }
+
+    /* Контейнер для кнопок */
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #8860D0;
+        color: white;
+        padding: 10px 18px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        margin-left: 10px;
+    }
+
+    .btn:hover {
+        background: #5680E9;
+        transform: translateY(-2px);
+    }
+
+    table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    th, td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    th {
+        background: #5680E9;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background: rgba(255,255,255,0.08);
+    }
+
+    tr:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .empty {
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
 </head>
+
 <body>
 
 <h2>Додати логіки учню</h2>

@@ -38,3 +38,16 @@ def add_logics(request):
         return redirect('students')
 
     return render(request, 'add_logics.html', {'students': students})
+
+
+
+def add_new_student(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('students')
+    else:
+        form = StudentForm()
+
+    return render(request, 'add_new_student.html', {'form': form})

@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+<h2>Додати нового учня</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Додати</button>
+</form>
+
+<a href="{% url 'students' %}">Назад</a>
 </body>
 </html>
