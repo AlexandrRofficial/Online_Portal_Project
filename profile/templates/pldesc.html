@@ -40,8 +40,14 @@
 
 </head>
 <body>
-    <a href="{% url 'profile' %}" class="btn">← Назад</a>
+    <a href="{% url 'profile' %}" class="btn">Назад</a>
     <h1>добавить пост</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+</form>
     <!-- Форма та контент додаються тут -->
 </body>
 </html>
