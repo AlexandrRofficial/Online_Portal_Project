@@ -13,19 +13,28 @@ def add_logics(request):
 
     if request.method == "POST":
         student_id = request.POST.get("student")
-        points_str = request.POST.get("points", "0")  # беремо рядок
+
+        # Беремо введені бали
+        points_str = request.POST.get("points", "0")
+
+        # Перетворюємо у число — навіть якщо пусто або текст
         try:
-            points = str(points_str)  # перетворюємо на int
-        except ValueError:
-            points = 0  # якщо введено некоректне число
+            points = int(points_str)
+        except (ValueError, TypeError):
+            points = 0
 
         student = get_object_or_404(Student, id=student_id)
 
-        if student.logics is None:
-            student.logics = 0  # якщо поле пусте
+        # Переконуємось, що logics точно int
+        try:
+            current_logics = int(student.logics)
+        except (ValueError, TypeError):
+            current_logics = 0
 
-        student.logics += points
+        # Додаємо
+        student.logics = current_logics + points
         student.save()
+
         return redirect('students')
 
     return render(request, 'add_logics.html', {'students': students})
