@@ -43,10 +43,9 @@
     }
 
     .btn {
-    display: in-line block;
-    flex-direction: column;
-    padding: 14px 30px;
-    margin: 10px;
+    display: inline-block;
+    padding: 17px 38px;   
+    margin: 6px;          
     background: rgba(255, 255, 255, 0.18);
     color: #ffffff;
     font-family: Garamond, serif;
@@ -55,6 +54,7 @@
     text-decoration: none;
     transition: 0.25s ease;
     backdrop-filter: blur(3px);
+    margin-left: 15px;
     }
 
     .btn:hover {
@@ -62,12 +62,12 @@
     transform: scale(1.05);
     }
     .button-block {
-        float: left;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: -220px;
+    position: absolute;
+    top: 80px;   
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;    
     }
 
     </style>
@@ -98,6 +98,7 @@
 <div class="button-block">
     <a href="forum1.html" class="btn">Форум</a>
     <a href="register2.html" class="btn">Реєстрація</a>
+    <a href="profile.html" class="btn">Профіль</a>
 </div>
 
 </body>
