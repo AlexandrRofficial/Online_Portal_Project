@@ -3,102 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Додати бали</title>
-    <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #C1C8E4;
-        font-family: Arial, sans-serif;
-        color: white;
-    }
-
-    /* Контейнер для кнопок */
-    .top-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px;
-    }
-
-    .btn {
-        display: inline-block;
-        background: #8860D0;
-        color: white;
-        padding: 10px 18px;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        transition: 0.3s;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        margin-left: 10px;
-    }
-
-    .btn:hover {
-        background: #5680E9;
-        transform: translateY(-2px);
-    }
-
-    table {
-        width: 90%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    th, td {
-        padding: 12px 16px;
-        text-align: left;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
-    th {
-        background: #5680E9;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    tr:nth-child(even) {
-        background: rgba(255,255,255,0.08);
-    }
-
-    tr:hover {
-        background: rgba(255,255,255,0.2);
-    }
-
-    .empty {
-        text-align: center;
-        padding: 20px;
-    }
-</style>
-
+        <style>
+        body { background: #acb6dd;; font-family: Arial; padding: 40px; }
+        .card {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            font-size: 16px;
+        }
+        button { background: #6c5ce7; border: none; color: white; cursor: pointer; }
+        button:hover { background: #5945d6; }
+    </style>
 </head>
 
 <body>
 
-<h2>Додати логіки учню</h2>
+<h2>Додати логіки учням</h2>
 
 <form method="POST">
     {% csrf_token %}
 
-    <label>Учень:</label><br>
-    <select name="student">
+    <label>Учні (можна вибрати кількох):</label><br>
+    <select name="students" multiple size="5">
         {% for student in students %}
             <option value="{{ student.id }}">{{ student.name }}</option>
         {% endfor %}
     </select>
     <br><br>
 
-    <label>Скільки балів додати:</label><br>
+    <label>Скільки балів додати всім вибраним:</label><br>
     <input type="number" name="points" min="1" required>
     <br><br>
 
     <button type="submit">Додати</button>
 </form>
+
+<p>Утримуйте CTRL щоб вибрати кілька учнів</p>
 
 </body>
 </html>

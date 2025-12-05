@@ -7,12 +7,11 @@
     body {
         margin: 0;
         padding: 0;
-        background: #C1C8E4;
+        background: #acb6dd;
         font-family: Arial, sans-serif;
-        color: white;
+        color: rgb(15, 10, 10);
     }
 
-    /* Контейнер для кнопок */
     .top-bar {
         display: flex;
         justify-content: space-between;
@@ -83,7 +82,7 @@
     <a href="{% url 'add_new_student' %}" class="btn">+ Додати учня</a>
 
     <div>
-        <a class="btn">Редагувати учня</a>
+        <!-- видаляємо помилкову кнопку редагування -->
         <a href="{% url 'add_logics' %}" class="btn">Додати логіки</a>
     </div>
 </div>
@@ -93,6 +92,7 @@
         <tr>
             <th>ПІБ</th>
             <th>Логіки</th>
+            <th>Дії</th>
         </tr>
     </thead>
     <tbody>
@@ -100,10 +100,13 @@
         <tr>
             <td>{{ student.name }}</td>
             <td>{{ student.logics }}</td>
+            <td>
+                <a href="{% url 'edit_student' student.id %}" class="btn">Редагувати</a>
+            </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="2" class="empty">Немає учнів</td>
+            <td colspan="3" class="empty">Немає учнів</td>
         </tr>
         {% endfor %}
     </tbody>
