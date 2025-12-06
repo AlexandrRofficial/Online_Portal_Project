@@ -24,4 +24,9 @@ urlpatterns = [
     path("", views.index, name="index"),
     path('materials/', include('materials.urls')),
     path('announcments/', include('announcments.urls')),
+    path('e_diary/',include('e_diary.urls')),
+    path('profile/',include('profile.urls')),
+    path('accounts/',include('accounts.urls')),
+    
+    
 ]

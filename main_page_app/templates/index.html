@@ -6,27 +6,70 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #5680e9;
+            background: radial-gradient(circle,rgba(111, 186, 242, 1) 0%, rgba(79, 110, 216, 1) 50%);
         }
         .navbar {
-            background-color: #5ab9ea;
-            color: #8860D0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            font-family: Luminari, fantasy;
+            background-color: #6fbaf2;
+            color: #4b2494;
             padding: 15px;
             text-align: center;
             font-size: 39px
         }
         .container {
             padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
         h1, h2 {
-            color: #C1C8E4;
+            color: #e2e6f5;
+            font-family:Garamond, serif;
         }
         p {
-            color: #84CEEB;
+            color: #d0e6fa;
+            font-family:"Lucida Console", "Courier New", monospace;
         }
+
+    .button-container {
+        margin-top: 30px;
+    }
+
+    .btn {
+    display: inline-block;
+    padding: 17px 38px;   
+    margin: 6px;          
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-family: Garamond, serif;
+    font-size: 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.25s ease;
+    backdrop-filter: blur(3px);
+    margin-left: 15px;
+    }
+
+    .btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
+    }
+    .button-block {
+    position: absolute;
+    top: 80px;   
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;    
+    }
+
     </style>
     <p>hello</p>
 </head>
@@ -50,7 +93,12 @@
     <h2>Перейти до сторінки оголошень</h2>
 
     <h2>Перейти до сторінки опитувань</h2>
+</div>
 
+<div class="button-block">
+    <a href="forum1.html" class="btn">Форум</a>
+    <a href="register2.html" class="btn">Реєстрація</a>
+    <a href="profile.html" class="btn">Профіль</a>
 </div>
 
 </body>

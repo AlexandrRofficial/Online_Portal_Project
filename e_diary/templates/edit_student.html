@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагування учня</title>
+    <style>
+        body { background: #acb6dd;; font-family: Arial; padding: 40px; }
+        .card {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            font-size: 16px;
+        }
+        button { background: #6c5ce7; border: none; color: white; cursor: pointer; }
+        button:hover { background: #5945d6; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Редагування: {{ student.name }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зберегти</button>
+    </form>
+
+    <br>
+    <a href="{% url 'students' %}">⬅ Назад</a>
+</div>
+
+</body>
+</html>
