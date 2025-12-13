@@ -3,9 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcmnets</title>
+    <title>Announcements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+
+        background: linear-gradient(
+            135deg,
+            #84CEEB 0%,
+            #5AB9EA 25%,
+            #C1C8E4 55%,
+            #8860D0 100%
+            );
+
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        }
+
+        /* Хедер */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1,
+        h1 {
+            color: white;
+            text-shadow: 0 0 10px rgba(255,255,255,0.6);
+        }
+
+        h1 {
+            margin: 2rem 0 1rem;
+        }
+
+        /* Карточки */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            flex: 1;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.22);
+            border-left: 5px solid #84CEEB;
+            border-radius: 16px;
+            padding: 1.5rem;
+
+            color: #ffffff;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            backdrop-filter: blur(14px);
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255,255,255,0.4);
+        }
+
+        .card p {
+            color: #f1f1f1;
+        }
+
+        .card small {
+            margin-top: 1rem;
+            display: block;
+            opacity: 0.85;
+        }
+
+        /* Футер */
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.15);
+            color: #ffffff;
+            backdrop-filter: blur(4px);
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header class="header">
+        <h1>Welcome to the Announcements Page</h1>
+    </header>
+
+    <h1>Announcements</h1>
+
+    <form method="get" style="text-align:center; margin-bottom:20px;">
+    <select name="important">
+        <option value="">All</option>
+        <option value="true">Important only</option>
+        <option value="false">Not important</option>
+    </select>
+
+    <select name="sort">
+        <option value="">Sort by</option>
+        <option value="created_at_desc">Newest first</option>
+        <option value="created_at_asc">Oldest first</option>
+        <option value="important_first">Important first</option>
+    </select>
+
+    <button type="submit">Apply</button>
+    </form>
+
+    <div class="cards">
+        {% for announcment in announcments %}
+            <div class="card">
+                <h2>{{ announcment.title }}</h2>
+                <p>{{ announcment.text|truncatewords:20 }}</p>
+
+                {% if announcment.important %}
+                    <p><b style="color:#5AB9EA;">Important</b></p>
+                {% else %}
+                    <p><span style="opacity:0.7;">Not important</span></p>
+                {% endif %}
+
+                <small>Created: {{ announcment.created_at }}</small>
+            </div>
+        {% empty %}
+            <p style="text-align:center; color:white;">No available announcements</p>
+        {% endfor %}
+    </div>
+
+    <footer class="footer">
+        <p>© 2025. All rights reserved.</p>
+    </footer>
 </body>
 </html>

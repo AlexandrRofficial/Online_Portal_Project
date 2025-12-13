@@ -5,13 +5,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    initial = True
-
-    dependencies = []
+    dependencies = [
+        ("profile", "0001_initial"),
+    ]
 
     operations = [
         migrations.CreateModel(
-            name="Item",
+            name="post",
             fields=[
                 (
                     "id",
@@ -22,12 +22,12 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("title", models.CharField(max_length=200)),
-                ("description", models.TextField(blank=True)),
-                (
-                    "extension",
-                    models.FileField(blank=True, null=True, upload_to="materials/"),
-                ),
+                ("post", models.CharField(max_length=200)),
             ],
+        ),
+        migrations.RenameField(
+            model_name="profile",
+            old_name="name",
+            new_name="Name",
         ),
     ]
