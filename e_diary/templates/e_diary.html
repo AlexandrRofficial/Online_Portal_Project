@@ -7,58 +7,91 @@
     body {
         margin: 0;
         padding: 0;
-        background: #acb6dd;
         font-family: Arial, sans-serif;
-        color: rgb(15, 10, 10);
+
+        /* Фон як на головній */
+        background: linear-gradient(135deg, #4a63e7, #77bfff);
+        color: white;
+        min-height: 100vh;
     }
 
+    /* Верхня твоя панель */
     .top-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 20px 40px;
+
+        /* прозорий білий як у головному меню */
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.3);
     }
 
     .btn {
         display: inline-block;
-        background: #8860D0;
+        background: rgba(255,255,255,0.25);
         color: white;
         padding: 10px 18px;
         text-decoration: none;
-        border-radius: 8px;
+        border-radius: 12px;
         font-weight: bold;
         transition: 0.3s;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        margin-left: 10px;
+        backdrop-filter: blur(6px);
     }
 
     .btn:hover {
-        background: #5680E9;
+        background: rgba(255,255,255,0.45);
         transform: translateY(-2px);
     }
 
+    /* Іконка акаунта */
+    .profile-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.65);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .profile-icon:hover {
+        background: rgba(255,255,255,0.9);
+        transform: translateY(-2px);
+    }
+
+    .profile-icon img {
+        width: 60%;
+    }
+
+    /* Таблиця */
     table {
         width: 90%;
-        margin: 20px auto;
+        margin: 30px auto;
         border-collapse: collapse;
         background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 12px;
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        color: white;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
 
     th, td {
-        padding: 12px 16px;
+        padding: 14px 18px;
         text-align: left;
         border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
     th {
-        background: #5680E9;
-        color: white;
-        font-size: 18px;
+        background: rgba(255,255,255,0.25);
+        color: #fff;
         font-weight: bold;
+        font-size: 18px;
     }
 
     tr:nth-child(even) {
@@ -79,12 +112,21 @@
 <body>
 
 <div class="top-bar">
-    <a href="{% url 'add_new_student' %}" class="btn">+ Додати учня</a>
 
-    <div>
-        <!-- видаляємо помилкову кнопку редагування -->
+    <!-- ЗЛІВА: кнопка Головна -->
+    <a href="{% url 'index' %}" class="btn">🏠 Головна</a>
+
+    <!-- ПОСЕРЕДИНІ: ТВОЇ ДВІ КНОПКИ -->
+    <div class="center-buttons">
+        <a href="{% url 'add_new_student' %}" class="btn">+ Додати учня</a>
         <a href="{% url 'add_logics' %}" class="btn">Додати логіки</a>
     </div>
+
+    <!-- СПРАВА: іконка акаунта -->
+    <a href="{% url 'profile' %}" class="profile-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png">
+    </a>
+
 </div>
 
 <table>

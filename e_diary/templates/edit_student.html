@@ -4,25 +4,70 @@
     <meta charset="UTF-8">
     <title>Редагування учня</title>
     <style>
-        body { background: #acb6dd;; font-family: Arial; padding: 40px; }
+        body {
+            background: #acb6dd;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            margin: 0;
+        }
+
         .card {
-            background: white;
-            width: 400px;
+            background: #ffffff;
+            width: 420px;
             margin: auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            padding: 30px 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
         }
-        input, button {
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 24px;
+            color: #2d3436;
+            margin-bottom: 20px;
+        }
+
+        form p {
+            margin-bottom: 18px;
+        }
+
+        input {
             width: 100%;
-            padding: 10px;
-            margin-top: 12px;
+            padding: 12px;
             border-radius: 8px;
-            border: 1px solid #aaa;
+            border: 1px solid #b2bec3;
             font-size: 16px;
+            box-sizing: border-box;
         }
-        button { background: #6c5ce7; border: none; color: white; cursor: pointer; }
-        button:hover { background: #5945d6; }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: #6c5ce7;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #5a4ad8;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #2d3436;
+            font-size: 15px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -36,7 +81,6 @@
         <button type="submit">Зберегти</button>
     </form>
 
-    <br>
     <a href="{% url 'students' %}">⬅ Назад</a>
 </div>
 
